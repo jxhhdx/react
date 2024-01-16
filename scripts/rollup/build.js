@@ -149,7 +149,7 @@ function getBabelConfig(
     presets: [],
     plugins: [...babelPlugins],
     babelHelpers: 'bundled',
-    sourcemap: false,
+    sourcemap: true,
   };
   if (isDevelopment) {
     options.plugins.push(
@@ -220,7 +220,7 @@ function getRollupOutputOptions(
     freeze: !isProduction,
     interop: getRollupInteropValue,
     name: globalName,
-    sourcemap: false,
+    sourcemap: true,
     esModule: false,
     exports: 'auto',
   };
