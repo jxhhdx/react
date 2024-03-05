@@ -198,6 +198,9 @@ function getRollupOutputOptions(
     interop: false,
     name: globalName,
     sourcemap: true,
+    sourcemapPathTransform(path) {
+      return path.replace("../../../../packages", "/Users/gaoxiang/asop/react/packages")
+    },
     esModule: false,
   };
 }
@@ -383,13 +386,13 @@ function getPlugins(
     // Note that this plugin must be called after closure applies DCE.
     // isProduction && stripUnusedImports(pureExternalModules),
     // Add the whitespace back if necessary.
-    shouldStayReadable &&
-      prettier({
-        parser: 'babel',
-        singleQuote: false,
-        trailingComma: 'none',
-        bracketSpacing: true,
-      }),
+    // shouldStayReadable &&
+    //   prettier({
+    //     parser: 'babel',
+    //     singleQuote: false,
+    //     trailingComma: 'none',
+    //     bracketSpacing: true,
+    //   }),
     // License and haste headers, top-level `if` blocks.
     // {
     //   renderChunk(source) {
